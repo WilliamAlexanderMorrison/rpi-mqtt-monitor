@@ -27,3 +27,4 @@ sys_clock_speed = True
 swap = True
 memory = True
 uptime = True
+power_supply = True
