@@ -10,6 +10,8 @@ import paho.mqtt.client as paho
 import json
 import config
 
+import psutil
+
 # get device host name - used in mqtt topic
 hostname = socket.gethostname()
 
@@ -53,10 +55,16 @@ def check_swap():
 		return swap
 
 def check_memory():
-		full_cmd = "free -t | awk 'NR == 2 {print $3/$2*100}'"
-		memory = subprocess.Popen(full_cmd, shell=True, stdout=subprocess.PIPE).communicate()[0]
-		memory = round(float(memory.decode("utf-8").replace(",",".")))
-		return memory
+		#full_cmd = "free -t | awk 'NR == 2 {print $3/$2*100}'"
+		#memory = subprocess.Popen(full_cmd, shell=True, stdout=subprocess.PIPE).communicate()[0]
+		#memory = round(float(memory.decode("utf-8").replace(",",".")))
+		#return memory
+		try:
+                    memory = psutil.virtual_memory().percent
+                except:
+                    return False
+
+                return memory
 
 def check_cpu_temp():
 		full_cmd = "cat /sys/class/thermal/thermal_zone*/temp 2> /dev/null | sed 's/\(.\)..$//' | tail -n 1"
