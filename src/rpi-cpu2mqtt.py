@@ -13,8 +13,15 @@ import config
 import psutil
 
 # get device host name - used in mqtt topic
-hostname = socket.gethostname()
+def check_custom_host_name():
+        if config.custom_host_name:
+                hostname = config.host_name
+        else:
+                hostname = socket.gethostname()
 
+        return hostname
+
+hostname = check_custom_host_name()
 
 def check_used_space(path):
 		st = os.statvfs(path)
