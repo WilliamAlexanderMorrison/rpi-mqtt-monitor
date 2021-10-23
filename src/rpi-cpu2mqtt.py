@@ -251,8 +251,8 @@ if __name__ == '__main__':
 			memory = check_memory()
 		if config.uptime:
 			uptime_days = check_uptime()
-        if config.power_supply:
-            power_supply = check_power_supply()
+		if config.power_supply:
+			power_supply = check_power_supply()
 		# Publish messages to MQTT
 		if config.group_messages:
 			bulk_publish_to_mqtt(cpu_load, cpu_temp, used_space, voltage, sys_clock_speed, swap, memory, uptime_days, power_supply)
