@@ -64,7 +64,7 @@ def check_cpu_temp():
 			p = subprocess.Popen(full_cmd, shell=True, stdout=subprocess.PIPE).communicate()[0]
 			cpu_temp = p.decode("utf-8").replace('\n', ' ').replace('\r', '')
 		except:
-			cpu_temp = 0	
+			cpu_temp = 0
 		return cpu_temp
 
 def check_sys_clock_speed():
@@ -152,7 +152,7 @@ def config_json(what_config):
 			return ""
 		# Return our built discovery config
 		return json.dumps(data)
-	
+
 def publish_to_mqtt (cpu_load = 0, cpu_temp = 0, used_space = 0, voltage = 0, sys_clock_speed = 0, swap = 0, memory = 0, uptime_days = 0, power_supply = 0):
 		# connect to mqtt server
 		client = paho.Client()
