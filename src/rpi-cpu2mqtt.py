@@ -155,7 +155,6 @@ def config_json(what_config):
 		elif what_config == "power_supply":
 			data["icon"] = "mdi:power-plug"
 			data["name"] = hostname + " Power Supply"
-			data["unit_of_measurement"] = "days"
 		else:
 			return ""
 		# Return our built discovery config
