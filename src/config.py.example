@@ -7,6 +7,10 @@ mqtt_password = "password"
 mqtt_port = "1883"
 mqtt_topic_prefix = "rpi-MQTT-monitor"
 
+# Customize host name
+custom_host_name = True
+host_name = "custom-host"
+
 # Messages configuration
 
 # If this is set to True the script will send just one message containing all values
