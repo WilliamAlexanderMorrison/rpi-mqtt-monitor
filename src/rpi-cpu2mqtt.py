@@ -37,7 +37,7 @@ def check_cpu_load():
                 except:
                     return False
 
-                return cpu_load	
+                return cpu_load
 
 def check_voltage():
         try:
